@@ -1,10 +1,7 @@
 {
     "name": "ClassicMabeMobile",
     "description": "Troca localmente o avatar do Mabe no Mobile",
-    "authors": [{
-        "name": "celta",
-        "id": "320166414990180363"
-    }],
+    "authors": [{ "name": "celta", "id": "320166414990180363" }],
     "main": "index.js",
-    "version": "1.0.0"
+    "version": "1.0.1"
 }

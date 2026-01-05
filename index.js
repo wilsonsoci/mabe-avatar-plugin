@@ -1,1 +1,22 @@
-import { findByProps as n } from "@vendetta/metro"; import { after as a } from "@vendetta/patcher"; var e = n("getAvatarURL", "getDisplayAvatarURL"), s = "263029090540453899", p = "https://i.imgur.com/hHxK9dY.png", o, u = () => { o = a("getAvatarURL", e, (t, r) => { if ((t[0]?.id || t[0]) === s) return p; return r }) }, m = () => o?.(); export { m as onUnload, u as onLoad };
+// index.js
+const { findByProps } = vendetta.metro;
+const { after } = vendetta.patcher;
+
+const AvatarModule = findByProps("getAvatarURL", "getDisplayAvatarURL");
+const TARGET_ID = "263029090540453899";
+const CUSTOM_URL = "https://i.imgur.com/hHxK9dY.png";
+
+let unpatch;
+
+export default {
+    onLoad: () => {
+        unpatch = after("getAvatarURL", AvatarModule, (args, res) => {
+            const userId = args[0]?.id || args[0];
+            if (userId === TARGET_ID) return CUSTOM_URL;
+            return res;
+        });
+    },
+    onUnload: () => {
+        if (unpatch) unpatch();
+    }
+};
