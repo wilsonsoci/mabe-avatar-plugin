@@ -1,0 +1,1 @@
+import { findByProps as n } from "@vendetta/metro"; import { after as a } from "@vendetta/patcher"; var e = n("getAvatarURL", "getDisplayAvatarURL"), s = "263029090540453899", p = "https://i.imgur.com/hHxK9dY.png", o, u = () => { o = a("getAvatarURL", e, (t, r) => { if ((t[0]?.id || t[0]) === s) return p; return r }) }, m = () => o?.(); export { m as onUnload, u as onLoad };
