@@ -1,4 +1,3 @@
-// index.js
 const { findByProps } = vendetta.metro;
 const { after } = vendetta.patcher;
 
@@ -8,7 +7,7 @@ const CUSTOM_URL = "https://i.imgur.com/hHxK9dY.png";
 
 let unpatch;
 
-export default {
+module.exports = {
     onLoad: () => {
         unpatch = after("getAvatarURL", AvatarModule, (args, res) => {
             const userId = args[0]?.id || args[0];
